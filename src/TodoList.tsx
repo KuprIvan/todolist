@@ -7,6 +7,7 @@ type TodoListPropType = {
     title: string
     tasks: TaskType[]// Array<TaskType>
     changeFilterValue: (filter: FilteredValuesType) => void
+    removeTask: (id: number) => void
 }
 
 export type TaskType = {
@@ -28,7 +29,7 @@ const TodoList: FC<TodoListPropType> = (props): JSX.Element => {
                     <button>+</button>
                 </div>
 
-               <TasksList tasks={props.tasks} />
+               <TasksList tasks={props.tasks} removeTask={props.removeTask}/>
                 <div>
                     <button
                         onClick={() => props.changeFilterValue('all')}

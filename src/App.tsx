@@ -7,25 +7,29 @@ function App(): JSX.Element {
     // BLL:
 
     const [filter, setFilter] = useState<FilteredValuesType>('all')
-
-    const todoListTitle: string = "What to learn"
-
-    const todoListTasks: Array<TaskType> = [
+    const [tasks, setTasks] = useState<Array<TaskType>>([
         {id: 1, title: 'HTML&CSS', isDone: true},
         {id: 2, title: 'ES6 & TS', isDone: true},
         {id: 3, title: 'React & Redux', isDone: false},
-    ]
+    ])
+
+    const todoListTitle: string = "What to learn"
+
     let filteredTasks:Array<TaskType> = []
     const changeFilterValues = (filter: FilteredValuesType) => setFilter(filter)
+    const removeTask = (taskId: number) => {
+        const updatedTask = tasks.filter(t => t.id !== taskId)
+        setTasks(updatedTask)
+    }
 
     if (filter === 'all') {
-        filteredTasks = todoListTasks
+        filteredTasks = tasks
     }
     if (filter === 'active') {
-        filteredTasks = todoListTasks.filter(t => !t.isDone)
+        filteredTasks = tasks.filter(t => !t.isDone)
     }
     if (filter === 'completed') {
-        filteredTasks = todoListTasks.filter(t => t.isDone)
+        filteredTasks = tasks.filter(t => t.isDone)
     }
 
 
@@ -36,7 +40,9 @@ function App(): JSX.Element {
             <TodoList
                 title={todoListTitle}
                 tasks={filteredTasks}
-                changeFilterValue={changeFilterValues}/>
+                changeFilterValue={changeFilterValues}
+                removeTask={removeTask}
+            />
         </div>
 
     );

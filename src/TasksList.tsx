@@ -3,6 +3,7 @@ import {TaskType} from "./TodoList";
 
 type TasksList = {
     tasks: TaskType[]
+    removeTask: (id: number) => void
 }
 
 const TasksList: FC<TasksList> = (props): JSX.Element => {
@@ -14,6 +15,7 @@ const TasksList: FC<TasksList> = (props): JSX.Element => {
                 <li key={task.id}>
                     <input type="checkbox" checked={task.isDone}/>
                     <span>{task.title}</span>
+                    <button onClick={() => props.removeTask(task.id)}>X</button>
                 </li>
             )
         })
