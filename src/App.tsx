@@ -1,39 +1,47 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import './App.css';
 import TodoList, {TaskType} from "./TodoList";
+import {v1} from 'uuid';
 
 export type FilteredValuesType = 'all' | 'active' | 'completed'
+
 function App(): JSX.Element {
     // BLL:
 
     const [filter, setFilter] = useState<FilteredValuesType>('all')
     const [tasks, setTasks] = useState<Array<TaskType>>([
-        {id: 1, title: 'HTML&CSS', isDone: true},
-        {id: 2, title: 'ES6 & TS', isDone: true},
-        {id: 3, title: 'React & Redux', isDone: false},
+        {id: v1(), title: 'HTML&CSS', isDone: true},
+        {id: v1(), title: 'ES6 & TS', isDone: true},
+        {id: v1(), title: 'React & Redux', isDone: false},
     ])
 
     const todoListTitle: string = "What to learn"
 
-    let filteredTasks:Array<TaskType> = []
+
     const changeFilterValues = (filter: FilteredValuesType) => setFilter(filter)
-    const removeTask = (taskId: number) => {
+    const removeTask = (taskId: string) => {
         const updatedTask = tasks.filter(t => t.id !== taskId)
         setTasks(updatedTask)
     }
 
-    if (filter === 'all') {
-        filteredTasks = tasks
-    }
-    if (filter === 'active') {
-        filteredTasks = tasks.filter(t => !t.isDone)
-    }
-    if (filter === 'completed') {
-        filteredTasks = tasks.filter(t => t.isDone)
+    const addNewTask = (title: string) => {
+        const newTask: TaskType = {id: v1(), title: title, isDone: false}
+        setTasks([newTask, ...tasks])
     }
 
+    const getFilteredTasks = (tasks: Array<TaskType>, filter: FilteredValuesType): Array<TaskType> => {
+        let filteredTasks: Array<TaskType> = []
 
-
+        switch (filter) {
+            case 'active':
+                return tasks.filter(t => !t.isDone)
+            case 'completed':
+                return tasks.filter(t => t.isDone)
+            default:
+                return tasks
+        }
+    }
+    let filteredTasks = getFilteredTasks(tasks, filter)
     // UI:
     return (
         <div className={'App'}>
@@ -42,6 +50,7 @@ function App(): JSX.Element {
                 tasks={filteredTasks}
                 changeFilterValue={changeFilterValues}
                 removeTask={removeTask}
+                addNewTask={addNewTask}
             />
         </div>
 
