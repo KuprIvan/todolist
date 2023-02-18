@@ -31,16 +31,13 @@ const TodoList: FC<TodoListPropType> = (props): JSX.Element => {
 
     const [title, setTitle] = useState('')
 
-    const onInputEventHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value)
-    }
+
     const addTask = () => {
         const trimmedTitle = title.trim()
         if (trimmedTitle) {
             props.addNewTask(trimmedTitle)
-
         }
-        setTitle('')
+        setTitle('')   // очистка строки для контролируемого инпута
     }
 
     const onAllClickFilterHandler = () => {
@@ -52,7 +49,9 @@ const TodoList: FC<TodoListPropType> = (props): JSX.Element => {
     const onCompletedClickFilterHandler = () => {
         props.changeFilterValue('completed')
     }
-
+    const onInputEventHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.currentTarget.value)
+    }
     const onKeyEnterPress = (e: KeyboardEvent<HTMLInputElement>) => {
         e.key === 'Enter' && addTask()
     }

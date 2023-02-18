@@ -14,9 +14,7 @@ function App(): JSX.Element {
         {id: v1(), title: 'ES6 & TS', isDone: true},
         {id: v1(), title: 'React & Redux', isDone: false},
     ])
-
     const todoListTitle: string = "What to learn"
-
 
     const changeFilterValues = (filter: FilteredValuesType) => setFilter(filter)
     const removeTask = (taskId: string) => {
@@ -30,8 +28,6 @@ function App(): JSX.Element {
     }
 
     const getFilteredTasks = (tasks: Array<TaskType>, filter: FilteredValuesType): Array<TaskType> => {
-        let filteredTasks: Array<TaskType> = []
-
         switch (filter) {
             case 'active':
                 return tasks.filter(t => !t.isDone)
