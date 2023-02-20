@@ -27,6 +27,13 @@ function App(): JSX.Element {
         setTasks([newTask, ...tasks])
     }
 
+   /* const changeTaskStatus = (taskId: string) => {
+        setTasks(tasks.map((t) => t.id === taskId ? {...t, isDone: !t.isDone} : t))
+    }*/
+    const changeTaskStatus = (taskId: string, newIsDone: boolean) => {
+        setTasks(tasks.map((t) => t.id === taskId ? {...t, isDone: newIsDone} : t))
+    }
+
     const getFilteredTasks = (tasks: Array<TaskType>, filter: FilteredValuesType): Array<TaskType> => {
         switch (filter) {
             case 'active':
@@ -37,6 +44,7 @@ function App(): JSX.Element {
                 return tasks
         }
     }
+
     let filteredTasks = getFilteredTasks(tasks, filter)
     // UI:
     return (
@@ -47,6 +55,8 @@ function App(): JSX.Element {
                 changeFilterValue={changeFilterValues}
                 removeTask={removeTask}
                 addNewTask={addNewTask}
+                filter={filter}
+                changeTaskStatus={changeTaskStatus}
             />
         </div>
 

@@ -5,10 +5,12 @@ import {FilteredValuesType} from './App';
 
 type TodoListPropType = {
     title: string
+    filter: FilteredValuesType
     tasks: TaskType[]// Array<TaskType>
     changeFilterValue: (filter: FilteredValuesType) => void
     removeTask: (id: string) => void
     addNewTask: (title: string) => void
+    changeTaskStatus: (taskId: string, newIsDone: boolean) => void
 }
 
 export type TaskType = {
@@ -29,32 +31,39 @@ const TodoList: FC<TodoListPropType> = (props): JSX.Element => {
         // addTaskInput.current && props.addNewTask(addTaskInput.current.value)
     }*/
 
-    const [title, setTitle] = useState('')
+    const [title, setTitle] = useState<string>('')
+    const [error, setError] = useState<boolean>(false)
 
 
     const addTask = () => {
         const trimmedTitle = title.trim()
         if (trimmedTitle) {
             props.addNewTask(trimmedTitle)
+        } else {
+            setError(true)
         }
         setTitle('')   // очистка строки для контролируемого инпута
     }
 
-    const onAllClickFilterHandler = () => {
-        props.changeFilterValue('all')
+    const handlerCreator = (filter: FilteredValuesType) => {
+        return () => props.changeFilterValue(filter)
     }
-    const onActiveClickFilterHandler = () => {
-        props.changeFilterValue('active')
-    }
-    const onCompletedClickFilterHandler = () => {
-        props.changeFilterValue('completed')
-    }
+
     const onInputEventHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
+        setError(false)
     }
     const onKeyEnterPress = (e: KeyboardEvent<HTMLInputElement>) => {
         e.key === 'Enter' && addTask()
     }
+
+    const userMessageError = error && <div style={{color: 'hotpink'}}>Required!</div>
+    const isAddBtnDisabled = title.length === 0
+    const maxLengthMessage = 15
+    const isUserMessageTooLong = maxLengthMessage > 15
+    const userMaxLengthMessage = isUserMessageTooLong && <div style={{color: 'hotpink'}}>Task title is too long</div>
+    const inputErrorClasses = error || isUserMessageTooLong ? 'input-error' : ''
+
 
 
     // onChange
@@ -66,17 +75,24 @@ const TodoList: FC<TodoListPropType> = (props): JSX.Element => {
                     {/*for useRef*/}
                     {/*<input ref={addTaskInput}/>
                     <button onClick={addTask}>+</button> */}
-                    <input value={title} onChange={onInputEventHandler} onKeyDown={onKeyEnterPress}/>
-                    <button disabled={title.trim().length === 0} onClick={addTask}>+</button>
-                    {title.length > 15 && <div style={{color: 'hotpink'}}>Task title is too long</div>}
+                    <input
+                        value={title}
+                        onChange={onInputEventHandler}
+                        onKeyDown={onKeyEnterPress}
+                        placeholder={'Enter title'}
+                        className={inputErrorClasses}
+                    />
+                    <button disabled={isAddBtnDisabled} onClick={addTask}>+</button>
+                    {userMaxLengthMessage}
+                    {userMessageError}
 
                 </div>
 
-               <TasksList tasks={props.tasks} removeTask={props.removeTask}/>
+               <TasksList tasks={props.tasks} removeTask={props.removeTask} changeTaskStatus={props.changeTaskStatus}/>
                 <div>
-                    <button onClick={onAllClickFilterHandler}>All</button>
-                    <button onClick={onActiveClickFilterHandler}>Active</button>
-                    <button onClick={onCompletedClickFilterHandler}>Completed</button>
+                    <button className={`filter-btn ${props.filter === 'all' ? 'active-filter-btn' : ''}`} onClick={handlerCreator('all')}>All</button>
+                    <button className={`filter-btn ${props.filter === 'active' ? 'active-filter-btn' : ''}`} onClick={handlerCreator('active')}>Active</button>
+                    <button className={`filter-btn ${props.filter === 'completed' ? 'active-filter-btn' : ''}`} onClick={handlerCreator('completed')}>Completed</button>
                 </div>
             </div>
     );
