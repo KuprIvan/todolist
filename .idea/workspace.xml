@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="873bd1ac-31f0-41a5-a2eb-e9966df9b097" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,29 +18,48 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "KuprIvan"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="c08089c2-b943-4899-b941-3b86057a6d7b" />
+        <option name="url" value="git@github.com:KuprIvan/todolist.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2Uw4UHeaRZ7Vmt3l8c81Is0cwTk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/ivankupryianau/Documents/it-kamasutra/todolist/1-todolist&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/ivankupryianau/Documents/it-kamasutra/todolist/1-todolist/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "/Users/ivankupryianau/Documents/it-kamasutra/todolist/1-todolist",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "ts.external.directory.path": "/Users/ivankupryianau/Documents/it-kamasutra/todolist/1-todolist/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="es6.move.members.recent.items">
       <recent name="$PROJECT_DIR$/src/Todolist.tsx" />
@@ -50,13 +68,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a2fc3744-48d9-4858-a405-b8324accd178" name="Changes" comment="" />
+      <changelist id="873bd1ac-31f0-41a5-a2eb-e9966df9b097" name="Changes" comment="" />
       <created>1693837322350</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693837322350</updated>
       <workItem from="1693837323447" duration="303000" />
       <workItem from="1693837628120" duration="2486000" />
+      <workItem from="1693909029670" duration="615000" />
+      <workItem from="1693925081662" duration="290000" />
+      <workItem from="1693925377254" duration="1991000" />
     </task>
     <servers />
   </component>

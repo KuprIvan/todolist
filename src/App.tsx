@@ -19,10 +19,10 @@ function App() {
     let tasksForTodoList = tasks
 
     if (filter === 'active') {
-        tasksForTodoList = tasksForTodoList.filter(el => el.isDone === false)
+        tasksForTodoList = tasksForTodoList.filter(el => !el.isDone)
     }
     if (filter === 'completed') {
-        tasksForTodoList = tasksForTodoList.filter(el => el.isDone === true)
+        tasksForTodoList = tasksForTodoList.filter(el => el.isDone)
     }
 
     function changeFilterValue(value: FilterTypes) {
@@ -30,7 +30,7 @@ function App() {
     }
 
     function addTask(taskTitle: string) {
-        let newTask: TaskType  = {id: v1(), title: taskTitle, isDone: false}
+        let newTask: TaskType = {id: v1(), title: taskTitle, isDone: false}
         setTasks([newTask, ...tasks])
     }
 
@@ -39,15 +39,26 @@ function App() {
         setTasks(filteredTasks)
     }
 
+    function changeTaskStatus(id: string, isDone: boolean) {
+        let task = tasks.find(task => task.id === id)
+        if (task) {
+            task.isDone = isDone
+            setTasks([...tasks])
+        }
+
+    }
+
     return (
         <div className="App">
-           <Todolist
-               title="test"
-               tasks={tasksForTodoList}
-               removeTask={onClickButtonHandler}
-               changeFilterValue={changeFilterValue}
-               addTask={addTask}
-           />
+            <Todolist
+                title="test"
+                tasks={tasksForTodoList}
+                removeTask={onClickButtonHandler}
+                changeFilterValue={changeFilterValue}
+                addTask={addTask}
+                changeCheckBox={changeTaskStatus}
+                filter={filter}
+            />
         </div>
     );
 }
