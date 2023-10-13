@@ -34,6 +34,13 @@ function App() {
         }
     }
 
+    function removeTodoList(todolistId: string) {
+        setTodoLists(todoLists.filter(el => el.id !== todolistId))
+        delete tasks[todolistId]
+        setTasks({...tasks})
+
+    }
+
     let todoListId1 = v1();
     let todoListId2 = v1();
 
@@ -56,8 +63,6 @@ function App() {
             {id: v1(), title: 'NoSQL', isDone: true},
         ]
     })
-
-
 
 
     return (
@@ -85,6 +90,7 @@ function App() {
                                  title={tl.title}
                                  tasks={tasksForTodolist}
                                  removeTask={removeTask}
+                                 removeTodoList={removeTodoList}
                                  changeFilter={changeFilter}
                                  addTask={addTask}
                                  changeTaskStatus={changeStatus}
