@@ -11,7 +11,6 @@ type TodolistsType = {
 }
 
 function App() {
-    // let [filter, setFilter] = useState<FilterValuesType>("all");
     let todolistID1: string = v1();
     let todolistID2: string = v1();
 
@@ -45,13 +44,12 @@ function App() {
         let task = {id: v1(), title: title, isDone: false};
         setTasks({...tasks, [todolistId]: [task, ...tasks[todolistId]]});
     }
-    function changeStatus(taskId: string, isDone: boolean) {
-        // let task = tasks.find(t => t.id === taskId);
-        // if (task) {
-        //     task.isDone = isDone;
-        // }
-        //
-        // setTasks([...tasks]);
+    function changeStatus(todolistId: string, taskId: string, isDone: boolean) {
+        let task = tasks[todolistId].find(t => t.id === taskId);
+        if (task) {
+            task.isDone = isDone;
+        }
+        setTasks({...tasks});
     }
     function changeFilter(todolistId: string, value: FilterValuesType) {
        setTodolists(todolists.map(el => el.id === todolistId ? {...el, filter: value} : {...el}))
