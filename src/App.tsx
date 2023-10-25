@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import {v1} from 'uuid';
+import {strict} from "assert";
+import AddItemForm from "./AddItemForm";
 
 export type FilterValuesType = "all" | "active" | "completed";
 type TodolistType = {
@@ -9,7 +11,6 @@ type TodolistType = {
     title: string
     filter: FilterValuesType
 }
-
 type TasksStateType = {
     [key: string]: Array<TaskType>
 }
@@ -44,7 +45,6 @@ function App() {
         // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         setTasks({...tasks});
     }
-
     function addTask(title: string, todolistId: string) {
         let task = {id: v1(), title: title, isDone: false};
         //достанем нужный массив по todolistId:
@@ -54,7 +54,6 @@ function App() {
         // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         setTasks({...tasks});
     }
-
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
         //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
@@ -67,7 +66,6 @@ function App() {
             setTasks({...tasks});
         }
     }
-
     function changeFilter(value: FilterValuesType, todolistId: string) {
         let todolist = todolists.find(tl => tl.id === todolistId);
         if (todolist) {
@@ -75,7 +73,6 @@ function App() {
             setTodolists([...todolists])
         }
     }
-
     function removeTodolist(id: string) {
         // засунем в стейт список тудулистов, id которых не равны тому, который нужно выкинуть
         setTodolists(todolists.filter(tl => tl.id != id));
@@ -85,8 +82,17 @@ function App() {
         setTasks({...tasks});
     }
 
+    function addTodoList(title: string) {
+        let newTodolistId: string = v1()
+        let newTodoList: TodolistType = {id: newTodolistId, title, filter: 'all'}
+        setTodolists([newTodoList, ...todolists])
+        setTasks({...tasks, [newTodolistId]: []})
+
+    }
+
     return (
         <div className="App">
+                <AddItemForm addTask={addTodoList} />
             {
                 todolists.map(tl => {
                     let allTodolistTasks = tasks[tl.id];
