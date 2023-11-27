@@ -1,18 +1,13 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Todolist} from './Todolist';
+import {TaskType, Todolist} from './Todolist';
 import {v1} from 'uuid';
-import ButtonAppBar from "./ButtonaAppBar";
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import {AddItemForm} from './AddItemForm';
+import {AppBar, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@mui/material";
+import {Menu} from "@mui/icons-material";
+import Button from "@mui/material/Button";
 
 export type FilterValuesType = "all" | "active" | "completed";
-
-type TaskType = {
-
-}
-
 type TodolistType = {
     id: string
     title: string
@@ -26,15 +21,21 @@ type TasksStateType = {
 
 function App() {
     function removeTask(id: string, todolistId: string) {
+        //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
+        // перезапишем в этом объекте массив для нужного тудулиста отфилтрованным массивом:
         tasks[todolistId] = todolistTasks.filter(t => t.id != id);
+        // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         setTasks({...tasks});
     }
 
     function addTask(title: string, todolistId: string) {
         let task = {id: v1(), title: title, isDone: false};
+        //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
+        // перезапишем в этом объекте массив для нужного тудулиста копией, добавив в начало новую таску:
         tasks[todolistId] = [task, ...todolistTasks];
+        // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         setTasks({...tasks});
     }
 
@@ -47,21 +48,27 @@ function App() {
     }
 
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
+        //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
         // найдём нужную таску:
         let task = todolistTasks.find(t => t.id === id);
+        //изменим таску, если она нашлась
         if (task) {
             task.isDone = isDone;
+            // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
             setTasks({...tasks});
         }
     }
 
     function changeTaskTitle(id: string, newTitle: string, todolistId: string) {
+        //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
         // найдём нужную таску:
         let task = todolistTasks.find(t => t.id === id);
+        //изменим таску, если она нашлась
         if (task) {
             task.title = newTitle;
+            // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
             setTasks({...tasks});
         }
     }
@@ -76,8 +83,10 @@ function App() {
     }
 
     function changeTodolistTitle(id: string, title: string) {
+        // найдём нужный todolist
         const todolist = todolists.find(tl => tl.id === id);
         if (todolist) {
+            // если нашёлся - изменим ему заголовок
             todolist.title = title;
             setTodolists([...todolists]);
         }
@@ -114,9 +123,19 @@ function App() {
 
     return (
         <div className="App">
-            <ButtonAppBar/>
-            <Container>
-                <Grid container style={{padding: "20px"}}>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton edge="start" color="inherit" aria-label="menu">
+                        <Menu/>
+                    </IconButton>
+                    <Typography variant="h6">
+                        Todolist
+                    </Typography>
+                    <Button color="inherit">Login</Button>
+                </Toolbar>
+            </AppBar>
+            <Container fixed>
+                <Grid container style={{padding: '20px'}}>
                     <AddItemForm addItem={addTodolist}/>
                 </Grid>
                 <Grid container spacing={3}>
@@ -133,9 +152,7 @@ function App() {
                             }
 
                             return <Grid item>
-                                <Paper style={{padding: "10px"}}
-                                       elevation={3}
-                                >
+                                <Paper style={{padding: '10px'}}>
                                     <Todolist
                                         key={tl.id}
                                         id={tl.id}
@@ -151,7 +168,6 @@ function App() {
                                         changeTodolistTitle={changeTodolistTitle}
                                     />
                                 </Paper>
-
                             </Grid>
                         })
                     }
