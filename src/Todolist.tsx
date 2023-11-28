@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { Delete } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox';
+import CheckBox from "./components/CheckBox";
 
 
 export type TaskType = {
@@ -40,6 +41,12 @@ export function Todolist(props: PropsType) {
         props.changeTodolistTitle(props.id, title);
     }
 
+
+    // id: string, isDone: boolean, todolistId: string
+
+    const onChangeHandler = (taskID: string, isDone: boolean) => {
+        props.changeTaskStatus(taskID, isDone, props.id)
+    }
     const onAllClickHandler = () => props.changeFilter("all", props.id);
     const onActiveClickHandler = () => props.changeFilter("active", props.id);
     const onCompletedClickHandler = () => props.changeFilter("completed", props.id);
@@ -54,20 +61,17 @@ export function Todolist(props: PropsType) {
         <ul>
             {
                 props.tasks.map(t => {
-                    const onClickHandler = () => props.removeTask(t.id, props.id)
-                    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-                        let newIsDoneValue = e.currentTarget.checked;
-                        props.changeTaskStatus(t.id, newIsDoneValue, props.id);
-                    }
+                    const onClickHandler = () => props.removeTask(t.id, props.id);
+
+
                     const onTitleChangeHandler = (newValue: string) => {
                         props.changeTaskTitle(t.id, newValue, props.id);
                     }
 
 
                     return <div key={t.id} className={t.isDone ? "is-done" : ""}>
-                        <Checkbox onChange={onChangeHandler}
-                                  checked={t.isDone}
-                        />
+
+                        <CheckBox  checked={t.isDone} callback={(value) => {onChangeHandler(t.id, value)}}/>
 
                         <EditableSpan value={t.title} onChange={onTitleChangeHandler} />
                         <IconButton onClick={onClickHandler}>
