@@ -5,15 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="873bd1ac-31f0-41a5-a2eb-e9966df9b097" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/redux/state.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="HTML File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev_v2" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -41,61 +58,104 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "associative-array",
-    "last_opened_file_path": "/Users/ivankupryianau/Documents/it-kamasutra/todolist/1-todolist",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "/Users/ivankupryianau/Documents/it-kamasutra/todolist/1-todolist/node_modules/react-scripts",
-    "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "ts.external.directory.path": "/Users/ivankupryianau/Documents/it-kamasutra/todolist/1-todolist/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sprint__02__04&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ivankupryianau/Documents/it-kamasutra/todolist/todolist/src/reducers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/ivankupryianau/Documents/it-kamasutra/todolist/todolist/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/ivankupryianau/Documents/it-kamasutra/todolist/todolist/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/reducers" />
       <recent name="$PROJECT_DIR$/src/state" />
     </key>
     <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/src/EditableSpanType.tsx" />
+      <recent name="$PROJECT_DIR$/src/AddItemForm.tsx" />
       <recent name="$PROJECT_DIR$/src/Todolist.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.user reducer should increment only childrenCount">
-    <configuration name="user reducer should increment only age" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.get banknote list">
+    <configuration name="get Square Only Of Positive Integers" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/state/user-reducer.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/reducers/lesson_8.test.ts" />
       <test-names>
-        <test-name value="user reducer should increment only age" />
+        <test-name value="get Square Only Of Positive Integers" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="user reducer should increment only childrenCount" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="get Sum " type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/state/user-reducer.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/reducers/lesson_8.test.ts" />
       <test-names>
-        <test-name value="user reducer should increment only childrenCount" />
+        <test-name value="get Sum " />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="get banknote list" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/reducers/lesson_8.test.ts" />
+      <test-names>
+        <test-name value="get banknote list" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="is Even Sum Greater" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/reducers/lesson_8.test.ts" />
+      <test-names>
+        <test-name value="is Even Sum Greater" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="sum of first N numbers" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/reducers/lesson_8.test.ts" />
+      <test-names>
+        <test-name value="sum of first N numbers" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.user reducer should increment only childrenCount" />
-        <item itemvalue="Jest.user reducer should increment only age" />
+        <item itemvalue="Jest.get banknote list" />
+        <item itemvalue="Jest.sum of first N numbers" />
+        <item itemvalue="Jest.get Square Only Of Positive Integers" />
+        <item itemvalue="Jest.is Even Sum Greater" />
+        <item itemvalue="Jest.get Sum " />
       </list>
     </recent_temporary>
   </component>
@@ -120,13 +180,56 @@
       <workItem from="1695023131178" duration="18000" />
       <workItem from="1695046017629" duration="3455000" />
       <workItem from="1695133019169" duration="1451000" />
-      <workItem from="1697128034291" duration="8222000" />
-      <workItem from="1697371433162" duration="402000" />
-      <workItem from="1697374537317" duration="9682000" />
+      <workItem from="1697128034291" duration="7568000" />
+      <workItem from="1698219547545" duration="9425000" />
+      <workItem from="1699978995040" duration="3967000" />
+      <workItem from="1700046555344" duration="7065000" />
+      <workItem from="1701094040289" duration="3248000" />
+      <workItem from="1701183578462" duration="10337000" />
+      <workItem from="1701266720061" duration="881000" />
+      <workItem from="1701360990480" duration="6912000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Todolist.tsx</url>
+          <line>71</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Todolist.tsx</url>
+          <line>44</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/Todolist.tsx</url>
+          <line>24</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/reducers/lesson_8.test.ts</url>
+          <line>8</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
