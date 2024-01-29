@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useCallback} from 'react';
 import {FilterValuesType, TodolistType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
@@ -34,9 +34,9 @@ export function Todolist({todolist}: PropsType) {
     const removeTodolist = () => {
         dispatch(RemoveTodolistAC(id));
     }
-    const changeTodolistTitle = (title: string) => {
+    const changeTodolistTitle = useCallback((title: string) => {
         dispatch(ChangeTodolistTitleAC(title, id));
-    }
+    }, [dispatch])
 
     const onAllClickHandler = () => dispatch(ChangeTodolistFilterAC(id, "all"));
     const onActiveClickHandler = () => dispatch(ChangeTodolistFilterAC(id, "active"));
