@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useCallback} from 'react';
-import {FilterValuesType, TodolistType} from './App';
+import {TodolistType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
 import IconButton from '@mui/material/IconButton/IconButton';
@@ -55,10 +55,10 @@ export function Todolist({todolist}: PropsType) {
                     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
                         let newIsDoneValue = e.currentTarget.checked;
                         dispatch(changeTaskStatusAC(t.id, newIsDoneValue, id));
-                    }
+                    };
                     const onTitleChangeHandler = (newValue: string) => {
                         dispatch(changeTaskTitleAC(t.id, newValue, id));
-                    }
+                    };
 
 
                     return <div key={t.id} className={t.isDone ? "is-done" : ""}>

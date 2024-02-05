@@ -14,8 +14,7 @@ export type TodolistType = {
     title: string
     filter: FilterValuesType
 }
-
-type TasksStateType = {
+export type TasksStateType = {
     [key: string]: Array<TaskType>
 }
 
@@ -27,7 +26,7 @@ function App() {
     let [todolists, setTodolists] = useState<Array<TodolistType>>([
         {id: todolistId1, title: "What to learn", filter: "all"},
         {id: todolistId2, title: "What to buy", filter: "all"}
-    ])
+    ]);
 
     let [tasks, setTasks] = useState<TasksStateType>({
         [todolistId1]: [
@@ -96,7 +95,7 @@ function App() {
 
     function removeTodolist(id: string) {
         // засунем в стейт список тудулистов, id которых не равны тому, который нужно выкинуть
-        setTodolists(todolists.filter(tl => tl.id != id));
+        setTodolists(todolists.filter(tl => tl.id !== id));
         // удалим таски для этого тудулиста из второго стейта, где мы храним отдельно таски
         delete tasks[id]; // удаляем св-во из объекта... значением которого являлся массив тасок
         // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
