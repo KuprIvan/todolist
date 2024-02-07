@@ -7,32 +7,22 @@ export type ChangeTodolistTitleActionType = ReturnType<typeof ChangeTodolistTitl
 export type ChangeTodolistFilterActionType = ReturnType<typeof ChangeTodolistFilterAC>
 
 
-export type ActionsType = RemoveTodolistActionType
+export type ActionsTypeTodolistReducer = RemoveTodolistActionType
     | AddTodolistActionType
     | ChangeTodolistTitleActionType
     | ChangeTodolistFilterActionType
 
-export const todolistsReducer = (state: Array<TodolistType>, action: ActionsType) => {
+export const todolistsReducer = (state: Array<TodolistType>, action: ActionsTypeTodolistReducer): Array<TodolistType> => {
     switch (action.type) {
         case 'REMOVE-TODOLIST':
             return state.filter(tl => tl.id !== action.id)
         case 'ADD-TODOLIST':
             return [...state, {id: action.todolistId, title: action.title, filter: "all"}]
         case 'CHANGE-TODOLIST-TITLE': {
-            const todolist = state.find(tl => tl.id === action.id);
-            if (todolist) {
-                // если нашёлся - изменим ему заголовок
-                todolist.title = action.title;
-            }
-            return [...state]
+            return state.map(el => el.id === action.id ? {...el, title: action.title}: el)
         }
         case 'CHANGE-TODOLIST-FILTER': {
-            const todolist = state.find(tl => tl.id === action.id);
-            if (todolist) {
-                // если нашёлся - изменим ему заголовок
-                todolist.filter = action.filter;
-            }
-            return [...state];
+            return state.map(el => el.id === action.id ? {...el, filter: action.filter}: el)
         }
         default:
             throw new Error("I don't understand this type")
